@@ -13,8 +13,14 @@ public class ReviewBO {
 	private ReviewDAO reviewDao;
 	
 	public Review getReviewById(int id) {
-		Review review = reviewDao.selectReviewById(id);
-				
-		return review;
+		return reviewDao.selectReviewById(id);
+	}
+	
+	public int addReview(Review review) {
+		return reviewDao.insertReview(review);
+	}
+	
+	public int addReviewAsField(int storeId, String menu, String userName, double point, String review) {
+		return reviewDao.insertReviewAsField(storeId, menu, userName, point, review);
 	}
 }
