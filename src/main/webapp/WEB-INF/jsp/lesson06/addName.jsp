@@ -45,15 +45,27 @@
 					, success: function(data) {
 						if (data.is_duplication == true) {
 							$('#nameStatusArea').append('<small class="text-danger">중복된 이름입니다.</small>')
-						} else {
-							$('#nameStatusArea').append('<small class="text-success">사용 가능한 이름입니다.</small>')
-						}		
+						} 	
 					}
 					, error: function(e) {
 						alert("실패:" + e);
 					}
 				});
 				
+			});
+			
+			// 회원가입 동작 (버튼 클릭)
+			
+			$('#joinBtn').on('click', function() {
+				/* alert("회원가입 버튼 클릭"); */
+				
+				console.log($('#nameStatusArea').children().length);
+				
+				if ($('#nameStatusArea').children().length == 0) {
+					alert("서브밋 가능");
+				} else {
+					alert("서브밋 불가");
+				}
 			});
 		});
 	</script>
